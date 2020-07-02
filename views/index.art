@@ -31,7 +31,7 @@
     </style>
 </head>
 <body>
-    <h1>博客首页</h1>
+    <h1>李瓶儿博客首页</h1>
     <div id="blog-container"></div>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
