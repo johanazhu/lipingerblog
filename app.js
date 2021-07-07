@@ -88,6 +88,6 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(8002, () => {
+app.listen(8008, () => {
   console.log('listening at 8002 端口')
 })

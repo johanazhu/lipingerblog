@@ -176,7 +176,7 @@ const app = new Koa();
 
 从 ctx.request.body 中获取请求体；
 
-![koa-bodyparser](E:\桌面\node博客\自己的教程\koa-bodyparser.png)
+![koa-bodyparser](https://i.loli.net/2021/07/07/IUkj3MeZBsO7AGf.png)
 
 ```javascript
 router.post('/login', (ctx) => {
@@ -185,7 +185,7 @@ router.post('/login', (ctx) => {
 })
 ```
 
-![koa-bodyparser2](E:\桌面\node博客\自己的教程\koa-bodyparser2.png)
+![koa-bodyparser2](https://i.loli.net/2021/07/07/tiSLhC5OczKvyPB.png)
 
 第六步：试写各种接口
 
@@ -318,7 +318,9 @@ module.exports = {
 }
 ```
 
-第八步：使用workbench 初始化 数据库
+
+
+### 第八步：使用workbench 初始化 数据库
 
 如果使用mysql呢
 
@@ -336,15 +338,19 @@ module.exports = {
 
 （3）使用 Workbench 连接本地数据库
 
-![使用workbench](E:\桌面\node博客\自己的教程\使用workbench.png)
+![使用workbench](https://i.loli.net/2021/07/07/GjpVx8hlOFnuv6K.png)
+
+
 
 （4）创建users表
 
-![使用workbench1](E:\桌面\node博客\自己的教程\使用workbench1.png)
+![使用workbench1](https://i.loli.net/2021/07/07/ysRGozjYw7JX6b9.png)
+
+
 
 （4）创建articles表
 
-![使用workbench2](E:\桌面\node博客\自己的教程\使用workbench2.png)
+![使用workbench2](https://i.loli.net/2021/07/07/6cakD8BWSQNUHif.png)
 
 （6）增删改查
 
@@ -749,9 +755,7 @@ ctx.body = '登录失败'
 
 筛选一番后，看重 bootstrap 官网中的（https://startbootstrap.com/templates/blog/）中模板，因为我们此番目的是教学，所以简约美是我们的方向。下载首页（home）以及文章列表页（post），将其中的代码拷贝至项目static文件下，如下所需的文件。而我们的模板使用的 art-template。
 
-![资源文件](E:\桌面\node博客\自己的教程\资源文件.png)
-
-
+![资源文件](https://i.loli.net/2021/07/07/s1vTDqgEFCdny4X.png)
 
 因为过于简单，在这里贴出官网（https://aui.github.io/art-template/koa/）链接，供大家查看，除此之外，还需要让服务加载静态资源，这里使用的是koa-static。
 

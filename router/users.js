@@ -35,7 +35,7 @@ router.post('/login', async (ctx, next) => {
     ctx.body = new SuccessModel()
     return
   }
-  cxt.body = new ErrorModel('登录失败')
+  ctx.body = new ErrorModel('登录失败')
 })
 
 module.exports = router;
