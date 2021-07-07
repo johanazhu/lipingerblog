@@ -320,7 +320,7 @@ module.exports = {
 
 
 
-### 第八步：使用workbench 初始化 数据库
+### 第八步：使用 workbench 初始化 数据库
 
 如果使用mysql呢
 
