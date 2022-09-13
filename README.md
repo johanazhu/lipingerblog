@@ -1,4 +1,4 @@
-### koa2 搭建博客
+# koa2 搭建博客
 
 
 
@@ -753,11 +753,11 @@ ctx.body = '登录失败'
 
 我们已经把redis和session 都做好了，但是还不能检测出来，因为你必须要登录。所以我们需要先写前端页面。这里需要一些时间来找找模板，因为一个人的审美是很重要滴
 
-筛选一番后，看重 bootstrap 官网中的（https://startbootstrap.com/templates/blog/）中模板，因为我们此番目的是教学，所以简约美是我们的方向。下载首页（home）以及文章列表页（post），将其中的代码拷贝至项目static文件下，如下所需的文件。而我们的模板使用的 art-template。
+筛选一番后，看重 bootstrap 官网中的（https://startbootstrap.com/templates/blog/） 中模板，因为我们此番目的是教学，所以简约美是我们的方向。下载首页（home）以及文章列表页（post），将其中的代码拷贝至项目static文件下，如下所需的文件。而我们的模板使用的 art-template。
 
 ![资源文件](https://i.loli.net/2021/07/07/s1vTDqgEFCdny4X.png)
 
-因为过于简单，在这里贴出官网（https://aui.github.io/art-template/koa/）链接，供大家查看，除此之外，还需要让服务加载静态资源，这里使用的是koa-static。
+因为过于简单，在这里贴出官网（https://aui.github.io/art-template/koa/） 链接，供大家查看，除此之外，还需要让服务加载静态资源，这里使用的是koa-static。
 
 修改app.js
 
@@ -792,14 +792,6 @@ routing(app);
 
 
 
-
-
-
-
-
-
-
-
 第二十步：错误处理
 
 ```typescript
@@ -831,6 +823,12 @@ export default function catchError() {
 
 
 
+
+## 部署
+
+git push 到远程仓库
+
+在服务器中配置后 git 私钥后，git pull 远程仓库代码
 
 
 

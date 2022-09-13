@@ -20,7 +20,7 @@
         table th {
             text-align: left;
             background-color: #f1f1f1;
-        } 
+        }
         table td:nth-child(1) {
             width: 300px;
         }
