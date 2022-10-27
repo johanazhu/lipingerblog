@@ -1,14 +1,14 @@
-# koa2 搭建博客
+# 李瓶儿搭建博客
 
 
 
-第一步：下载Koa
+## 第一步：下载Koa
 
 ```shell
 npm install koa --save
 ```
 
-第二步：启动 koa 服务器
+## 第二步：启动 koa 服务器
 
 ```javascript
 const Koa = require('koa');
@@ -24,13 +24,11 @@ app.listen(3000, () => {
 })
 ```
 
-第三步：添加 koa-router 配置路由
+## 第三步：添加 koa-router 配置路由
 
 koa很小，它与express 的区别在于，express集成了router，body解析等
 
-但是koa只有很小的，
-
-他 有 中间件机制，还有use的用法。其他的都不用，use的本质也是个中间件
+但是 koa 很小，它拥有中间件机制，还有use的用法。其他的都不用，use的本质也是个中间件
 
 koa-router 是专门管理路由的，他也是个中间件
 
@@ -76,11 +74,9 @@ app.listen(3000, () => {
 
 记住，**koa中use中的函数都为中间件**
 
+## 第四步：按照需求对router进行 目录改造
 
-
-第四步：按照需求对router进行 目录改造
-
-在根目录下建立 router 文件夹，在 router 文件夹中建立 articles.js(文章接口)，categories.js(类目接口)，comments.js(评论接口)，home.js(首页借口)，index.js，tags(标签接口)，users(用户接口)
+在根目录下建立 router 文件夹，在 router 文件夹中建立 articles.js(文章接口)，categories.js(类目接口)，comments.js(评论接口)，home.js(首页接口)，index.js，tags(标签接口)，users(用户接口)
 
 以用户接口为例，
 
@@ -100,8 +96,6 @@ router.post('/',  (ctx) => {
 } )
 module.exports = router;
 ```
-
-
 
 每个文件及路由。再在index.js中做统一的路由注册
 
@@ -130,7 +124,7 @@ module.exports = (app) => {
 }
 ```
 
-第五步：请求数据的获取
+## 第五步：请求数据的获取
 
 我们知道当我们GET请求时，是在url后的 `?` 后加参数，形式问key=value。
 
@@ -187,7 +181,7 @@ router.post('/login', (ctx) => {
 
 ![koa-bodyparser2](https://i.loli.net/2021/07/07/tiSLhC5OczKvyPB.png)
 
-第六步：试写各种接口
+## 第六步：试写各种接口
 
 users.js
 
@@ -241,11 +235,11 @@ router.delete('/:id', ctx => {
 
 先写这两个主要的路由接口，如果此两个主要路由通，其他都可在后续添加
 
-第七步：加上mysql数据库
+## 第七步：加上mysql数据库
 
-首先，mysql是一种最常见的数据库，其次，对mysql感兴趣的可以移步XX
+首先，mysql 是一种最常见的数据库，其次，对 mysql 感兴趣的可以移步XX
 
-先下载mysql 的包
+先下载 mysql 的包
 
 ```shell
 npm i mysql --save
@@ -265,9 +259,9 @@ npm i cross-env --save
     ...
 ```
 
-在根目录下创建，conf文件夹和db文件夹，conf文件夹用来存放各种配置。db文件夹用来启动mysql
+在根目录下创建，conf 文件夹和 db 文件夹，conf 文件夹用来存放各种配置。db 文件夹用来启动 mysql
 
-先进入conf文件夹，创建index.js
+先进入 conf 文件夹，创建 index.js
 
 ```javascript
 const env = process.env.NODE_ENV // 环境变量
@@ -289,7 +283,7 @@ module.exports = {
 }
 ```
 
-进入db文件夹，创建index.js
+进入 db 文件夹，创建index.js
 
 ```javascript
 
@@ -318,41 +312,39 @@ module.exports = {
 }
 ```
 
+## 第八步：使用 workbench 初始化 数据库
 
+如果使用 mysql 呢
 
-### 第八步：使用 workbench 初始化 数据库
+这里需要说明一下，MongoDB 是对象数据库 ，而 mysql 是关系数据库，
 
-如果使用mysql呢
-
-这里需要说明一下，MongoDB 是对象数据库 ，而mysql是关系数据库，
-
-如果使用MongoDB，你可以直接在项目中创建你所需要的数据，比如id，username，password等数据字段
+如果使用 MongoDB，你可以直接在项目中创建你所需要的数据，比如id，username，password等数据字段
 
 而用mysql的话你最好会使用mysql的语法，先创建数据库，在创建表，麻烦的要死。
 
-为说明问题，本人大公无私，身先士卒，敢为人先。
+为说明问题，本人大公无私，身先士卒，敢为人先
 
-（1）下载mysql，
-
-（2）下载 Mysql Workbench 图形化工具
-
-（3）使用 Workbench 连接本地数据库
+- 下载mysql
+- 下载 Mysql Workbench 图形化工具
+- 使用 Workbench 连接本地数据库
 
 ![使用workbench](https://i.loli.net/2021/07/07/GjpVx8hlOFnuv6K.png)
 
 
 
-（4）创建users表
+- 创建users表
 
 ![使用workbench1](https://i.loli.net/2021/07/07/ysRGozjYw7JX6b9.png)
 
 
 
-（4）创建articles表
+- 创建articles表
+
 
 ![使用workbench2](https://i.loli.net/2021/07/07/6cakD8BWSQNUHif.png)
 
-（6）增删改查
+- 增删改查
+
 
 在sql文本中，输入 use lipingerblog，使用lipingerblog这个数据库，show tables为显示所有的表
 
@@ -432,9 +424,8 @@ delete from users where realname='李四'
 update users set state='0' where username='lisi'
 ```
 
-
-
-PS:如果你的更新和删除出现 error：1175处于安全模式，先使用以下代码解除安全模式
+> PS：如果你的更新和删除出现 error：1175处于安全模式，先使用以下代码解除安全模式
+>
 
 ```mysql
 SET SQL_SAFE_UPDATES=0;
@@ -444,7 +435,7 @@ SET SQL_SAFE_UPDATES=0;
 
 此时，我们的workbench 教程告一段落
 
-第九步：koa连接mysql
+## 第九步：koa连接mysql
 
 首先，改造articles文件，
 
@@ -463,7 +454,7 @@ router.get('/', async (ctx) => {
 
 发现能拉取数据，说明koa已经和mysql已经连接了
 
-第十步：控制和路由分而治之
+## 第十步：控制和路由分而治之
 
 目前的项目还比较简单，但是一旦开展起来，路由和控制应该要分开。以前叫MVC，model层，view层，controller层，但是因为此项目中没有model层和view层。但是router只管路由，也可以分层。所以在根目录下创建controller文件夹，在其目录下创建`articles.js` 和 `users.js`  ,改造第一个文件
 
@@ -495,9 +486,10 @@ router.get('/', find)
 
 跑起来后，目录结构清晰，为人大方，亲密可嘉
 
-ps：一般商业项目都有十几，二十几个接口，所以一般都是要分离的。虽然文件变多了，但是目录看起来清晰
+> ps：一般商业项目都有十几，二十几个接口，所以一般都是要分离的。虽然文件变多了，但是目录看起来清晰
+>
 
-第十一步：陆续做完剩下的路由和mysql连接
+## 第十一步：陆续做完剩下的路由和 mysql 连接
 
 在做的过程中你会发现，有些地方需要登录才能操作，比如说你的更新自己的文章，你要删除自己的文章，那你是谁，你是否登录，一些列问题就出来了，这个时候我们不急，先用假数据把接口调通，下一步再实现登录认证。
 
@@ -634,11 +626,9 @@ const { create } = require('../controller/users');
 router.post('/login', create)
 ```
 
-#### 第十二步：  cookie session
+## 第十二步：  cookie session
 
 我不知道该怎么说明cookie 和 session
-
-
 
 cookie其实就是在客户端发送http请求时，header中带有的某个key，传到服务端后，服务端能查看你的cookie，根据你的值判断你的人（你是谁）。这样就实现了用户的认证登录功能。
 
@@ -652,25 +642,16 @@ cookie中存放 userid，server 端对应 username
 
 具体过程：用户首次访问网页，客户端发送请求给服务端，服务端收到后，查看http头，如果没有cookie，就用session做一个cookie来，然后返回cookie（cookie不仅可以在客户端设置，也可以在服务端设置），当用户第二次请求网页的时候，因为有cookie，服务器判断http头有cookie，就做出有cookie的展示...
 
-
-
 http 本身是无状态的，session 是一种机制
 
-session 从字面上讲，就是会话
+session 从字面上讲，就是会话，cookie是浏览器本身自带的存储方式
 
+例如：你请求我的登录页面，我用session 把你的信息存下来，如果你再请求我的其他页面，因为我的状态已经被session 存下来了，所以访问其他页面时，我们能请求到，如果session过期，那么我们会报错
 
+> PS：也是心血来潮才做koa+session会话实现的。session更适合 页面渲染的后端，即前后端不分离的项目，现在的项目一般都是前后端分离，用jwt才是正解。我在express项目中正是用到了jwt。
+>
 
-我按照自己的理解来梳理一下 session 和 cookie 。cookie是浏览器本身自带的存储方式，你用，
-
-你请求我的登录页面，我用session 把你的信息存下来，如果你再请求我的其他页面，因为我的状态已经被session 存下来了，所以访问其他页面时，我们能请求到，如果session过期，那么我们会报错
-
-
-
-
-
-PS:也是心血来潮才做koa+session会话实现的。session更适合 页面渲染的后端，即前后端不分离的项目，现在的项目一般都是前后端分离，用jwt才是正解。我在express项目中正是用到了jwt。
-
-#### 第十三步：koa+session+cookie
+## 第十三步：koa+session+cookie
 
 了解完cookie和session是什么后，那怎么把session和koa结合呢？
 
@@ -680,7 +661,7 @@ PS:也是心血来潮才做koa+session会话实现的。session更适合 页面�
 
 先来看看redis吧
 
-#### 第十四步：redis的基本用法
+## 第十四步：redis的基本用法
 
 redis是内存数据库，一句话描述就是速度快，比起mysql等数据库，它因为存在内存中，所以速度快，一般网站都是用session和redis的结合，详见 redis 篇章
 
@@ -693,11 +674,9 @@ redis是内存数据库，一句话描述就是速度快，比起mysql等数据�
 | del key       | 删除key       | del myname       |
 | keys *        | 显示所有的key | keys *           |
 
-#### 第十五步：koa链接session与redis
+## 第十五步：koa链接session与redis
 
-
-
-下载 `koa-generic-session` 和 `koa-redis` 包，
+下载 `koa-generic-session` 和 `koa-redis` 包
 
 在app.js 文件中配置redis和session 的配置
 
@@ -743,21 +722,19 @@ if (resultData[0].username) {
 ctx.body = '登录失败'
 ```
 
-让我们屡一下思路，当用户登录时，去数据库查数据，如果没有，就显示登录失败；如果有，那么保存下他的username和realname已经返回“登录成功”。
+让我们捋一下思路，当用户登录时，去数据库查数据，如果没有，就显示登录失败；如果有，那么保存下他的username和realname已经返回“登录成功”。
 
 因为session保存的时间是24小时，所以在这24小时内，session 会话一直保持着（存在redis中）
 
-
-
-第十六步：编写前端页面
+## 第十六步：编写前端页面
 
 我们已经把redis和session 都做好了，但是还不能检测出来，因为你必须要登录。所以我们需要先写前端页面。这里需要一些时间来找找模板，因为一个人的审美是很重要滴
 
-筛选一番后，看重 bootstrap 官网中的（https://startbootstrap.com/templates/blog/） 中模板，因为我们此番目的是教学，所以简约美是我们的方向。下载首页（home）以及文章列表页（post），将其中的代码拷贝至项目static文件下，如下所需的文件。而我们的模板使用的 art-template。
+筛选一番后，看重 [bootstrap 官网](https://themes.getbootstrap.com/)中的中模板，因为我们此番目的是教学，所以简约美是我们的方向。下载首页（home）以及文章列表页（post），将其中的代码拷贝至项目static文件下，如下所需的文件。而我们的模板使用的 art-template。
 
 ![资源文件](https://i.loli.net/2021/07/07/s1vTDqgEFCdny4X.png)
 
-因为过于简单，在这里贴出官网（https://aui.github.io/art-template/koa/） 链接，供大家查看，除此之外，还需要让服务加载静态资源，这里使用的是koa-static。
+因为过于简单，在这里贴出[官网](https://koajs.com/) 链接，供大家查看，除此之外，还需要让服务加载静态资源，这里使用的是koa-static。
 
 修改app.js
 
@@ -790,9 +767,7 @@ routing(app);
 
 这样只是做好了一小步，首页和文章的样式都已经加载好了，但是我们还需要注册和登录的页面，下一节，动手做出注册登录页面
 
-
-
-第二十步：错误处理
+## 第十七步：错误处理
 
 ```typescript
 import assert from 'assert';
@@ -822,15 +797,27 @@ export default function catchError() {
 
 
 
-
-
-## 部署
+## 第十八步：部署
 
 git push 到远程仓库
 
 在服务器中配置后 git 私钥后，git pull 远程仓库代码
 
 
+
+
+
+## 请我喝咖啡☕️
+
+如果您觉得这个项目能够帮助到您，可以给我个 star🌟，也可以推荐给您的朋友
+
+持续更新中～ 🚀🚀🚀
+
+<img src="https://s2.loli.net/2022/10/09/31kvp8HRJuoBCfc.jpg" height="300px" width="300px" />
+
+## License
+
+MIT
 
 
 
